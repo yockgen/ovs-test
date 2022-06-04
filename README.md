@@ -1,6 +1,6 @@
 # Open vSwitch test case
 
-## Setup OvS bridge and installed test containers
+## Setup OvS bridge and install test containers
 ./ovs-test.sh 
 
 - assumption that user environment has two hosts  
