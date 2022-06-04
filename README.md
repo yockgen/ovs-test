@@ -5,7 +5,7 @@
 
 - assumption that user environment has two hosts  
 - run ./ovs-test.sh on all targets host(s)
-- Make sure change remote_ip according to host NIC IP address (not local IP but remote target host IP)
+- Make sure update remote_ip according to remote target valid NIC IP address
 ```
 #!/bin/sh
 ....
