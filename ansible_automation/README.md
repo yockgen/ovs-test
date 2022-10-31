@@ -1,15 +1,10 @@
-nano /etc/ansible/hosts
-
-//kbl01
-cd /data/imsa
-
-//test
-ansible -i /etc/ansible/hosts all -m ping
+# Simple Ansible example of Docker Container with Open vSwitch as network bridge    
 
 
-//run playbook
+## Verifying Ansible is proper configured        
+ansible -i /etc/ansible/hosts all -m ping    
+
+## Run OvS Container Playbook
 ansible-playbook main.yaml
 
 
-//ensure the host is accessible external
-nano /etc/resolv.conf
