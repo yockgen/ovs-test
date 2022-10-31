@@ -2,7 +2,7 @@
 - name: Ubuntu OvS configuration and validation
   hosts: all
   vars:
-    path: "/data/imsa"
+    path: "/data/ovs-test"
 
   tasks:
   - name: Install Open vSwitch
