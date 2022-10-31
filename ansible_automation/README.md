@@ -11,6 +11,13 @@ Tutorial could be found on https://docs.ansible.com/ansible/latest/getting_start
 ansible -i /etc/ansible/hosts all -m ping    
 ```
 
+### Giving execute permission to all shell scripts 
+```
+chmod +x configure_ovs.sh
+chmod +x run_containers.sh
+chmod +x connection_test.sh
+```
+
 ### Run OvS Container Playbook
 The playbook is expected the host directory all shell scripts files (the *.sh files in this project) will be located inside /data/ovs-test, if this not the case, please change the main.yaml "path" variable accordingly:
 ```
