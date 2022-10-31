@@ -1,0 +1,48 @@
+---
+- name: Ubuntu OvS configuration and validation
+  hosts: all
+  vars:
+    path: "/data/imsa"
+
+  tasks:
+  - name: Install Open vSwitch
+    apt:
+      name: "openvswitch-switch"
+    become: yes
+
+  - name: Install Docker
+    apt:
+      name: "docker-ce"
+    become: yes
+
+  - name: Run container
+    shell:
+      "{{ path }}/run_containers.sh"
+    register: result
+    become: yes
+  - debug:
+      msg: "{{result.stdout_lines}}"
+
+  - name: Verify test container
+    shell:
+      "docker ps | grep 'yockgen'"
+    register: result
+    become: yes
+  - debug:
+      msg: "{{result.stdout_lines}}"
+
+  - name: Configure ovs
+    shell:
+      "{{ path }}/configure_ovs.sh"
+    register: result
+    become: yes
+  - debug:
+      msg: "{{result.stdout_lines}}"
+
+  - name: Connection Testing
+    shell:
+      "{{ path }}/connection_test.sh"
+    register: result
+    become: yes
+  - debug:
+      msg: "{{result.stdout_lines}}"
